@@ -91,23 +91,26 @@ car_rent_rate = 125 # standard per day car rental charge
 hotel_rate = 235 # Per night rate for hotel
 
 # USER INPUT
-print("\n *** CITY BREAK SALE NOW ON *** \n")
-print("We have some great offers on holidays to amazing cities worldwide!\n")
-print("The best offers are currently available on the following locations:")
+print(f''' 
+------------------------------
+*** CITY BREAK SALE NOW ON ***
+------------------------------
+
+We have some great offers on holidays to amazing cities worldwide!
+The best offers are currently available on the following locations:
+''')
 
 for item in city:
     print(item)
-    
-print(" ")
 
-city_flight = input("Which city would you be interested in visting?  ")
+city_flight = input(f"\nWhich city would you be interested in visting?  ")
 
 while city_flight not in city:
     print("Unfortunately, we don't have any offers for this location for now.")
     city_flight = input("Please make a selection from the cities listed:  ")
 
-print(f"\n{city_flight} is a great choice!\n")
-num_nights = int(input("How many nights would you like to go for?  "))
+print(f"\n{city_flight} is a great choice!")
+num_nights = int(input(f"\nHow many nights would you like to go for?  "))
 rental_days = int(input(f"\nHow many days would you like to have a rental car for?  "))
 
 # OUTPUTS BASED ON USER INPUTS
@@ -116,19 +119,25 @@ hotel_tot = (per_day_rate(num_nights, hotel_rate))
 car_rent_tot = (per_day_rate(rental_days, car_rent_rate))
 holiday_tot = (holiday_cost(flight_cost, hotel_tot, car_rent_tot))
 
-print(f"\nBased on your criteria, please find below the price breakdown:\n")
+print(f''' 
+--------------------
+YOUR HOLIDAY DETAILS
+--------------------
+Based on your criteria, please find below the price breakdown:
 
-print("FLIGHT DETAILS")
-print(f"Return Flights to {city_flight}:  £{flight_cost}\n")
+FLIGHT DETAILS:
+Return Flights to {city_flight}:  £{flight_cost}
 
-print("HOTEL ACCOMODATION:")
-print(f"Duration: {num_nights} nights (B&B rate)")
-print(f"Accommodation Cost:  £{hotel_tot}\n")
+HOTAL ACCOMMODATION:
+Duration: {num_nights} nights (B&B rate)
+Accommodation Cost:  £{hotel_tot}
 
-print("CAR RENTAL:")
-print(f"Duration: {rental_days} days.")
-print(f"Rental Cost:  £{car_rent_tot}\n")
+CAR RENTAL:
+Duration: {rental_days} days.
+Rental Cost:  £{car_rent_tot}
 
-print(f"TOTAL PACKAGE PRICE:  £{holiday_tot}")
+TOTAL PACAKAGE PRICE:  £{holiday_tot}
+-------------------------------------
+''')
 
 # ************  END OF PROGRAM  ************
