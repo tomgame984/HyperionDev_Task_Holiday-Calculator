@@ -32,17 +32,44 @@
 # hotel_cost and car_rental cost functions require the same calculation. So I 
 # only created this per_day_rate function.
 def per_day_rate(num1, num2):
+    """Calculates the total cost of items where there is a per day rate and
+    a varying number of days.
+
+    Args:
+        num1 (int): user defined number of days/nights.
+        num2 (int): daily charge for the associated item.
+
+    Returns:
+        int: total costs = num of days * daily charge.
+    """
     rate_tot = num1 * num2
     return rate_tot
 
 # FLIGHT COST
 def plane_cost(x, y, z):
+    """Returns the total cost of a flight based on user defined inputs.
+
+    Args:
+        x (list): A list of cities.
+        y (str): User input - selection made from 'city' list.
+        z (dict): Dictionary with key (cities) value (flight price)
+    """
     for item in x:
         if item == y:
             return(z[item])
         
 # HOLIDAY COST
 def holiday_cost(x, y, z):
+    """Provides a grand total for the holiday.
+
+    Args:
+        x (int): returned value from flight_cost func.
+        y (int): returned value from per_day_rate func. Called for hotel cost.
+        z (int): returned value from per_dat_rate func. called for car rental cost.
+
+    Returns:
+        int: the sum of x, y, z values.
+    """
     total_cost = int(x + y + z)
     return total_cost
 
